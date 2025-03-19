@@ -8,8 +8,8 @@ const doc = new GoogleSpreadsheet(spreadsheetId);
 
 export default async function handler(req, res) {
   try {
-    // Авторизация с использованием сервисного аккаунта через authorize()
-    await doc.authorize(creds); // заменено на authorize()
+    // Авторизация с использованием сервисного аккаунта
+    await doc.useServiceAccountAuth(creds); // если эта строка не работает, заменим на doc.authorize()
     await doc.loadInfo(); // Загружаем таблицу
     const sheet = doc.sheetsByIndex[0]; // Получаем первый лист таблицы
 
