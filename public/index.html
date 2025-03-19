@@ -165,16 +165,15 @@
         // Функция для загрузки данных пользователей
         async function fetchUsersData() {
             try {
-                const response = await fetch('users.json'); // Укажи правильный путь к файлу users.json
-                if (!response.ok) {
-                    throw new Error('Не удалось загрузить данные');
-                }
+                const response = await fetch('/api/users'); // API-роут Vercel
+                if (!response.ok) throw new Error('Ошибка загрузки базы данных');
                 return await response.json();
             } catch (error) {
-                console.error('Ошибка загрузки данных:', error);
-                return {}; // Возвращаем пустой объект, если данные не загрузились
+                console.error('Ошибка:', error);
+                return {};
             }
         }
+
 
         // Форматирование телефона для отображения
         function formatPhoneNumber(value) {
@@ -191,18 +190,6 @@
 
             return formatted;
         }
-
-        async function fetchUsersData() {
-            try {
-                const response = await fetch('/users');
-                if (!response.ok) throw new Error('Ошибка загрузки базы данных');
-                return await response.json();
-            } catch (error) {
-                console.error('Ошибка:', error);
-                return {};
-            }
-        }
-
 
         // Обработчик для ввода в поле логина
         loginField.addEventListener("input", function () {
