@@ -273,15 +273,14 @@
 
 
         // Валидация пароля
-        passwordField.addEventListener("input", function () {
-            if (passwordField.value.trim().length > 0) {
-                passwordField.classList.remove('error');
-                passwordError.textContent = '';
+        passwordField.addEventListener('input', function () {
+            if (passwordField.value.length > 0) {
+                togglePassword.style.display = 'block';
             } else {
-                passwordField.classList.add('error');
-                passwordError.textContent = 'Введите пароль';
+                togglePassword.style.display = 'none';
             }
         });
+
 
         // Переключение видимости пароля
         togglePassword.addEventListener('click', function () {
