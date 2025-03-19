@@ -3,7 +3,6 @@ const fs = require('fs');
 const cors = require('cors');
 const path = require('path');
 const os = require('os');
-const { fetchUsersData } = require('./googleSheets');
 const filePath = __dirname + '/public/users.json';
 
 const app = express();
@@ -39,15 +38,6 @@ function checkIfRequestExists(name) {
         });
     });
 }
-
-app.get('/users', async (req, res) => {
-    try {
-        const users = await fetchUsersData();
-        res.json(users);
-    } catch (error) {
-        res.status(500).json({ error: 'Ошибка загрузки данных' });
-    }
-});
 
 // Эндпоинт для отправки заявки
 app.post('/submit-request', async (req, res) => {
