@@ -192,6 +192,18 @@
             return formatted;
         }
 
+        async function fetchUsersData() {
+            try {
+                const response = await fetch('/users');
+                if (!response.ok) throw new Error('Ошибка загрузки базы данных');
+                return await response.json();
+            } catch (error) {
+                console.error('Ошибка:', error);
+                return {};
+            }
+        }
+
+
         // Обработчик для ввода в поле логина
         loginField.addEventListener("input", function () {
             let oldValue = loginField.value;
