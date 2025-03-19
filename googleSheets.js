@@ -3,10 +3,10 @@ const { JWT } = require('google-auth-library');
 const fs = require('fs');
 
 // Загружаем ключи из JSON-файла
-const creds = JSON.parse(fs.readFileSync('service-account.json'));
+const creds = JSON.parse(fs.readFileSync('credentials.json'));
 
 // ID таблицы (из URL Google Sheets)
-const SHEET_ID = 'YOUR_SHEET_ID';
+const SHEET_ID = '1XOe29zxWW0mgVrZQSAu-9TQ4i7dfvYOBkq7-VvWg2nY';
 
 // Функция для получения данных
 async function fetchUsersData() {
